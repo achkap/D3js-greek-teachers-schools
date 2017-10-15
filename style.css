@@ -152,13 +152,13 @@ circle.active {
     margin: 0.2em;
 }
 .lab {
-    fill: #CD0000;
+    fill: #FF8383;        /*====================================>change bubbles*/
 }
 .lib {
-    fill: #00CD00;
+    fill: #25D81F;
 }
 .con {
-    fill: #4876FF;
+    fill: #D21FD8;
 }
 .snp {
     fill: #FFE4E1;
