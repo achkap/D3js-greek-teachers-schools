@@ -152,7 +152,7 @@ circle.active {
     margin: 0.2em;
 }
 .lab {
-    fill: #F02233; /*#FF8383;        /*====================================>change bubbles*/
+    fill: /*#F02233;*/ #FF8383;        /*====================================>change bubbles*/
 }
 .lib {
     fill: #FDBB30;    /*#25D81F;*/
