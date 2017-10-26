@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:400,700">
 
+    
+    <script>                                                //add sound on click
+        var onClick_Sound = new Audio();
+        onClick_Sound.src = "moneysound.mp3";
+    </script>
+    
     <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-44807543-1']);
@@ -38,15 +44,15 @@
     <header role="banner" id="title">
         <h1>Who's funding the big three?</h1>
     </header>
-    <nav role="navigation">
+    <nav role="navigation">   //add action on mouse click
         <ul>
-            <li><a href="#" role="button" class="pure-button switch" id="all-donations">All money</a>
+            <li><a href="#" onmousedown="onClick_Sound.play()" role="button" class="pure-button switch" id="all-donations">All money</a>
             </li>
-            <li><a href="#" role="button" class="pure-button switch" id="group-by-money-source">The public's purse</a>
+            <li><a href="#" onmousedown="onClick_Sound.play()" role="button" class="pure-button switch" id="group-by-money-source">The public's purse</a>
             </li>
-            <li><a href="#" role="button" class="pure-button switch" id="group-by-party">Split by party</a>
+            <li><a href="#" onmousedown="onClick_Sound.play()" role="button" class="pure-button switch" id="group-by-party">Split by party</a>
             </li>
-            <li><a href="#" role="button" class="pure-button switch" id="group-by-donor-type">Split by type of donor</a>
+            <li><a href="#" onmousedown="onClick_Sound.play()" role="button" class="pure-button switch" id="group-by-donor-type">Split by type of donor</a>
             </li>
         </ul>
     </nav>
