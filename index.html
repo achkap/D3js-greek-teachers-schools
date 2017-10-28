@@ -18,10 +18,12 @@
 
     
     <script>                                                //add sound on click
-    function play()
+    function PlaySound()
      {
-        var onClick_Sound = document.getElementById("audio");
-        audio.play();
+        var onClick_Sound = new Audio();
+        onClick_Sound.src = "moneysound.mp3";
+        onClick_Sound.Play();
+     }
     </script>
     
     <script type="text/javascript">
@@ -47,12 +49,11 @@
         <h1>Who's funding the big three?</h1>
     </header>
     <!-- Add action on mouse click -->
-    <input type="button" value="PLAY"  onclick="play()">
-    <audio id="audio" src="moneysound.mp3" ></audio>
+    <audio id="moneysound.mp3"> </audio>
     
     <nav role="navigation"> 
         <ul>
-            <li><a href="#" role="button" class="pure-button switch" id="all-donations">All money</a>
+            <li><a href="#" onclick="PlaySound" role="button" class="pure-button switch" id="all-donations">All money</a>
             </li>
             <li><a href="#" onmousedown="onClick_Sound.play()" role="button" class="pure-button switch" id="group-by-money-source">The public's purse</a>
             </li>
