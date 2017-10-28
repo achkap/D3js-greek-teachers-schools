@@ -93,7 +93,7 @@ function start() {
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
 		.on("mouseout", mouseout);
-		//.on("click", SearchGoogle);
+		.on("click", SearchGoogle);
 		//.on("click", function(d) { window.open("http://www.google.com/search?q=" + d.donor);}); //google search
 		// Alternative title based 'tooltips'
 		// node.append("title")
