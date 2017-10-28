@@ -15,17 +15,7 @@
     <meta property="og:image:height" content="200" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:400,700">
-
     
-    <script>                                                //add sound on click
-    function PlaySound()
-     {
-        var onClick_Sound = new Audio();
-        onClick_Sound.src = "moneysound.mp3";
-        document.getElementById(onClick_Sound);
-        onClick_Sound.Play();
-     }
-    </script>
     
     <script>                                                //add sound on click
         var onClick_Sound2 = new Audio();
@@ -54,18 +44,18 @@
     <header role="banner" id="title">
         <h1>Who's funding the big three?</h1>
     </header>
+    
     <!-- Add action on mouse click -->
         
     <nav role="navigation"> 
         <ul>
-            <audio id="moneysound.mp3"> </audio>
-            <li><a href="#" onclick="PlaySound" role="button" class="pure-button switch" id="all-donations">All money</a>
+            <li><a href="#" onclick="onClick_Sound2.play()" role="button" class="pure-button switch" id="all-donations">All money</a>
             </li>
             <li><a href="#" onclick="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-money-source">The public's purse</a>
             </li>
-            <li><a href="#" onmousedown="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-party">Split by party</a>
+            <li><a href="#" onclick="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-party">Split by party</a>
             </li>
-            <li><a href="#" onmousedown="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-donor-type">Split by type of donor</a>
+            <li><a href="#" onclick="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-donor-type">Split by type of donor</a>
             </li>
         </ul>
     </nav>
