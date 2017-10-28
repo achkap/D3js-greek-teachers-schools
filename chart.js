@@ -341,12 +341,12 @@ function mouseout() {
 			.style("display", "none");
 		}
 //google search
-/*function SearchGoogle()
+function SearchGoogle()
 {
     var query = d.donor;
     url ='http://www.google.com/search?q=' + query;
     window.open(url,'_blank');
-}*/
+}
 
 $(document).ready(function() {
 		d3.selectAll(".switch").on("click", function(d) {
