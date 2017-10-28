@@ -27,6 +27,11 @@
      }
     </script>
     
+    <script>                                                //add sound on click
+        var onClick_Sound2 = new Audio();
+        onClick_Sound2.src = "moneysound.mp3";
+    </script>
+    
     <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-44807543-1']);
@@ -56,11 +61,11 @@
         <ul>
             <li><a href="#" onclick="PlaySound" role="button" class="pure-button switch" id="all-donations">All money</a>
             </li>
-            <li><a href="#" onmousedown="onClick_Sound.play()" role="button" class="pure-button switch" id="group-by-money-source">The public's purse</a>
+            <li><a href="#" onmousedown="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-money-source">The public's purse</a>
             </li>
-            <li><a href="#" onmousedown="onClick_Sound.play()" role="button" class="pure-button switch" id="group-by-party">Split by party</a>
+            <li><a href="#" onmousedown="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-party">Split by party</a>
             </li>
-            <li><a href="#" onmousedown="onClick_Sound.play()" role="button" class="pure-button switch" id="group-by-donor-type">Split by type of donor</a>
+            <li><a href="#" onmousedown="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-donor-type">Split by type of donor</a>
             </li>
         </ul>
     </nav>
