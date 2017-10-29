@@ -152,16 +152,16 @@ circle.active {
     margin: 0.2em;
 }
 .lab {
-    fill: /*#F02233;*/ #FF8383;        /*====================================>change bubbles*/
+    fill: #FF8383;       
 }
 .lib {
-    fill: #FDBB30;    /*#25D81F;*/
+    fill: #FDBB30;   
 }
 .con {
-    fill: #087FBD;    /*#D21FD8;*/
+    fill: #087FBD;    
 }
 .snp {
-    fill: #C9C945;     /*#FFE4E1;*/
+    fill: #C9C945;    
 }
 /*!
 Pure v0.2.1
