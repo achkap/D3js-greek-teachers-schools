@@ -21,7 +21,7 @@ var entityCentres = {
 		individual: {x: w / 3.65, y: h / 3.3},
 	};
 
-var fill = d3.scale.ordinal().range(["#FF6347", "#00FFFF", "#ADFF2F"]);
+var fill = d3.scale.ordinal().range(["#FF6347", "#00FFFF", "#ADFF2F"]);  //change color of bubbles
 
 var svgCentre = { 
     x: w / 3.6, y: h / 2
@@ -93,7 +93,7 @@ function start() {
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
 		//.on("mouseout", mouseout);
-		.on("click", SearchGoogle);
+		.on("click", SearchGoogle);   		    //add function for Google Search
 		// Alternative title based 'tooltips'
 		// node.append("title")
 		//.text(function(d) { return d.donor; });
@@ -339,7 +339,8 @@ function mouseout() {
 		d3.select(".tooltip")
 			.style("display", "none");
 		}
-//google search
+
+//Google Search
 function SearchGoogle(d)
 {
     var query = d.donor + " " + d.entity + " " + d.partyLabel;
