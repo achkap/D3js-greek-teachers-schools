@@ -343,7 +343,7 @@ function mouseout() {
 //Google Search
 function SearchGoogle(d)
 {
-    var query = d.donor + " " + d.entity + " " + d.partyLabel;
+    var query = d.donor + " " + d.entity + " " + d.partyLabel + "party";
     url ='http://www.google.com/search?q=' + query;
     window.open(url,'_blank');
 }
