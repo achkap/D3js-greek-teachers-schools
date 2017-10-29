@@ -92,12 +92,11 @@ function start() {
 		.attr("r", 0)
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
-		.on("mouseout", mouseout);
-		//.on("click", SearchGoogle);
-		//.on("click", function(d) { window.open("http://www.google.com/search?q=" + d.donor);}); //google search
+		//.on("mouseout", mouseout);
+		.on("click", SearchGoogle);
 		// Alternative title based 'tooltips'
 		// node.append("title")
-		//	.text(function(d) { return d.donor; });
+		//.text(function(d) { return d.donor; });
 
 		force.gravity(0)
 			.friction(0.75)
@@ -341,9 +340,9 @@ function mouseout() {
 			.style("display", "none");
 		}
 //google search
-function SearchGoogle()
+function SearchGoogle(d)
 {
-    var query = d.donor;
+    var query = d.donor + " " + d.entity + " " + d.partyLabel;
     url ='http://www.google.com/search?q=' + query;
     window.open(url,'_blank');
 }
