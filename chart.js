@@ -310,6 +310,7 @@ function display(data) {
 
 function mouseover(d, i) {
 	// tooltip popup
+	var speech = new SpeechSynthesisUtterance();
 	var mosie = d3.select(this);
 	var amount = mosie.attr("amount");
 	var donor = d.donor;
@@ -328,6 +329,12 @@ function mouseover(d, i) {
     .style("top", (parseInt(d3.select(this).attr("cy") - (d.radius+150)) + offset.top) + "px")
 		.html(infoBox)
 			.style("display","block");
+  speech.text = donor + amount;
+  speech.volume = 1;
+  speech.rate = 1;
+  speech.pitch = 1;
+
+  window.speechSynthesis.speak(speech);
 	}
 
 function mouseout() {
