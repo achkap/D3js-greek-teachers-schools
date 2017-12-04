@@ -22,6 +22,9 @@
         onClick_Sound2.src = "moneysound.mp3";
     </script>
     
+    <!-- Add text2speech script -->
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>   
+    
     <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-44807543-1']);
@@ -49,8 +52,9 @@
         
     <nav role="navigation"> 
         <ul>
-            <li><a href="#" onclick="onClick_Sound2.play()" role="button" class="pure-button switch" id="all-donations">All money</a>
+            <li><a href="#" onclick="onClick_Sound2.play()" onmouseover="responsiveVoice.speak("All money")" role="button" class="pure-button switch" id="all-donations">All money</a>
             </li>
+            
             <li><a href="#" onclick="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-money-source">The public's purse</a>
             </li>
             <li><a href="#" onclick="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-party">Split by party</a>
