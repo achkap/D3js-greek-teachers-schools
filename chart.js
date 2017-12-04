@@ -92,7 +92,7 @@ function start() {
 		.attr("r", 0)
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
-		//.on("mouseout", mouseout);
+		.on("mouseout", mouseout);
 		.on("click", SearchGoogle);   		    //add function for Google Search
 		// Alternative title based 'tooltips'
 		// node.append("title")
