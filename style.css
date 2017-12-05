@@ -19,8 +19,9 @@ li {
     display: inline;
 }
 
-p:hover {
-    font-size: 200%;
+// add magnifying text
+p:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover {
+    font-size: 400%;
 }
 
 /* 	Information boxes for different chart layouts */
