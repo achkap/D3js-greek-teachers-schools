@@ -329,7 +329,8 @@ function mouseover(d, i) {
     .style("top", (parseInt(d3.select(this).attr("cy") - (d.radius+150)) + offset.top) + "px")
 		.html(infoBox)
 			.style("display","block");
-  speech.text = donor + amount;
+// Add text2speech
+  speech.text = donor + " for the "+ party + "party" + amount "pounds";
   speech.volume = 1;
   speech.rate = 1;
   speech.pitch = 1;
@@ -345,6 +346,8 @@ function mouseout() {
 
 		d3.select(".tooltip")
 			.style("display", "none");
+	// Stop text2speech
+		window.speechSynthesis.stop();
 		}
 
 //Google Search
