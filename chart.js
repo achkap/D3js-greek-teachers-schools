@@ -347,7 +347,7 @@ function mouseout() {
 		d3.select(".tooltip")
 			.style("display", "none");
 	// Stop text2speech
-		//window.speechSynthesis.cancel();
+		window.speechSynthesis.cancel();
 		}
 
 //Google Search
