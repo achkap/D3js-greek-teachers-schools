@@ -330,7 +330,7 @@ function mouseover(d, i) {
 		.html(infoBox)
 			.style("display","block");
 // Add text2speech
-  speech.text = donor + amount;
+  speech.text = donor + "for the" + amount;
   speech.volume = 1;
   speech.rate = 1;
   speech.pitch = 1;
