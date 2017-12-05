@@ -20,7 +20,7 @@ li {
 }
 
 /* add magnifying text*/
-p:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover {
+p:hover {
     font-size: 400%;
 }
 
