@@ -19,7 +19,7 @@ li {
     display: inline;
 }
 
-// add magnifying text
+/* add magnifying text*/
 p:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover {
     font-size: 400%;
 }
