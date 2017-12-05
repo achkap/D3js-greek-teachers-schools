@@ -340,6 +340,7 @@ function mouseover(d, i) {
 
 function mouseout() {
 	// no more tooltips
+	var speech = new SpeechSynthesisUtterance();
 		var mosie = d3.select(this);
 
 		mosie.classed("active", false);
@@ -347,7 +348,7 @@ function mouseout() {
 		d3.select(".tooltip")
 			.style("display", "none");
 	// Stop text2speech
-		window.speechSynthesis.cancel();
+		window.speechSynthesis.cancel(speech);
 		}
 
 //Google Search
