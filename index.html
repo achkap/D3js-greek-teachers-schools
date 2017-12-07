@@ -22,8 +22,7 @@
         onClick_Sound2.src = "moneysound.mp3";
     </script>
     
-    <!-- Add text2speech script -->
-    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>   
+    
     
     <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -60,6 +59,9 @@
             <li><a href="#" onclick="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-party">Split by party</a>
             </li>
             <li><a href="#" onclick="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-donor-type">Split by type of donor</a>
+            </li>
+            <!-- Add button for bigdonor view -->
+            <li><a href="#" onclick="onClick_Sound2.play()" role="button" class="pure-button switch" id="group-by-bigdonor">Big Donors</a>
             </li>
         </ul>
     </nav>
@@ -214,7 +216,22 @@
     </div>
     <div id="chart"></div>
 
-
+<!-- Add details on bigdonor view -->
+    <div id="view-bigdonor-type">  
+              <div id="donors">
+                 <h2>Big Donors</h2>
+              </div>   
+              <div id="smalldonors">
+                  <h5> Small Donors (Up to 1 million pounds) </h5>
+             </div>
+             
+             <div id="bigdonors">    
+                 <h5> Big Donors (More than 1 million pounds) </h5>
+             </div> 
+        </div>       
+    
+    
+<div id="chart"></div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
