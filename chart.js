@@ -5,11 +5,10 @@ var nodes = [];
 var force, node, data, maxVal;
 var brake = 0.2;
 var radius = d3.scale.sqrt().range([10, 20]);
-
 var partyCentres = { 
     con: { x: w / 3, y: h / 3.3}, 
     lab: {x: w / 3, y: h / 2.3}, 
-    lib: {x: w / 3	, y: h / 1.8}
+    lib: {x: w / 3, y: h / 1.8}
   };
 
 var entityCentres = { 
@@ -18,9 +17,8 @@ var entityCentres = {
 		other: {x: w / 1.15, y: h / 1.9},
 		society: {x: w / 1.12, y: h  / 3.2 },
 		pub: {x: w / 1.8, y: h / 2.8},
-		individual: {x: w / 3.65, y: h / 3.3},
+		individual: {x: w / 3.65, y: h / 3.3}                   
 	};
-
 var fill = d3.scale.ordinal().range(["#FF6347", "#00FFFF", "#ADFF2F"]);  //change color of bubbles
 
 var svgCentre = { 
@@ -48,6 +46,7 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
+		$("#view-bigdonor-type").fadeOut(250);  //add big-donor split view
 		return total();
 		//location.reload();
 	}
@@ -57,6 +56,7 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeIn(1000);
+		$("#view-bigdonor-type").fadeOut(250);
 		return partyGroup();
 	}
 	if (name === "group-by-donor-type") {
@@ -65,18 +65,30 @@ function transition(name) {
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-donor-type").fadeIn(1000);
+		$("#view-bigdonor-type").fadeOut(250);
 		return donorType();
 	}
-	if (name === "group-by-money-source")
+	if (name === "group-by-money-source"){
 		$("#initial-content").fadeOut(250);
 		$("#value-scale").fadeOut(250);
 		$("#view-donor-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeIn(1000);
+		$("#view-bigdonor-type").fadeOut(250);
 		return fundsType();
 	}
+// add big donor function to create the bigdonor view
+	if (name === "group-by-bigdonor"){
+		$("#initial-content").fadeOut(250);
+		$("#value-scale").fadeOut(250);
+		$("#view-donor-type").fadeOut(250);
+		$("#view-party-type").fadeOut(250);
+		$("#view-source-type").fadeOut(1000);
+		$("#view-bigdonor-type").fadeIn(250);
+		return bigdonorType();
+	}
+}
 
-	
 function start() {
 
 	node = nodeGroup.selectAll("circle")
@@ -94,10 +106,10 @@ function start() {
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
 		.on("mouseout", mouseout)
-		.on("click", SearchGoogle);   		    //add function for Google Search
+	        .on("click", SearchGoogle);   		    //add function for Google Search
 		// Alternative title based 'tooltips'
 		// node.append("title")
-		//.text(function(d) { return d.donor; });
+		//	.text({ return d.donor; });
 
 		force.gravity(0)
 			.friction(0.75)
@@ -108,6 +120,15 @@ function start() {
 		node.transition()
 			.duration(2500)
 			.attr("r", function(d) { return d.radius; });
+}
+
+// add function big donor type
+function bigdonorType() {
+	force.gravity(0)
+		.friction(0.75)
+		.charge(function(d) { return -Math.pow(d.radius, 2) / 2.5; })
+		.on("tick", bigdonors)
+		.start();
 }
 
 function total() {
@@ -144,6 +165,14 @@ function fundsType() {
 		.start();
 }
 
+//add function bigdonors
+function bigdonors(e) {
+	node.each(moveToBigdonor(e.alpha));
+
+		node.attr("cx", function(d) { return d.x; })
+			.attr("cy", function(d) {return d.y; });
+}
+
 function parties(e) {
 	node.each(moveToParties(e.alpha));
 
@@ -174,6 +203,24 @@ function all(e) {
 			.attr("cy", function(d) {return d.y; });
 }
 
+
+// add function moveTo Bigdonor
+function moveToBigdonor(alpha) {
+	return function(d) {
+		
+		if (d.value <= 1000000) { 
+			centreX = svgCentre.x;
+			centreY = svgCentre.y;
+		} 
+                else  { 
+                            centreX = svgCentre.x + 450;
+                            centreY = svgCentre.y ;
+                      } 
+
+		d.x += (centreX - d.x) * (brake + 0.02) * alpha * 1.1;
+		d.y += (centreY - d.y) * (brake + 0.02) * alpha * 1.1;
+	};
+}
 
 function moveToCentre(alpha) {
 	return function(d) {
@@ -290,14 +337,15 @@ function display(data) {
 				donor: d.donor,
 				party: d.party,
 				partyLabel: d.partyname,
-				entity: d.entity,
+			        entity: d.entity,
 				entityLabel: d.entityname,
 				color: d.color,
 				x: Math.random() * w,
 				y: -y
       };
-			
-      nodes.push(node)
+
+		
+      nodes.push(node);            /*i put a semicolon*/
 	});
 
 	console.log(nodes);
@@ -311,7 +359,7 @@ function display(data) {
 
 function mouseover(d, i) {
 	// tooltip popup
-	var speech = new SpeechSynthesisUtterance();  //add speech variable 
+	var speech = new SpeechSynthesisUtterance();   // add speech variable
 	var mosie = d3.select(this);
 	var amount = mosie.attr("amount");
 	var donor = d.donor;
@@ -336,12 +384,12 @@ function mouseover(d, i) {
   speech.rate = 1;
   speech.pitch = 1;
 
-  window.speechSynthesis.speak(speech);
+  window.speechSynthesis.speak(speech);   // on mouseover it speaks
 }
 
 function mouseout() {
 	// no more tooltips
-	var speech = new SpeechSynthesisUtterance(); //add speech variable
+	var speech = new SpeechSynthesisUtterance();
 		var mosie = d3.select(this);
 
 		mosie.classed("active", false);
@@ -349,7 +397,7 @@ function mouseout() {
 		d3.select(".tooltip")
 			.style("display", "none");
 	// Stop text2speech
-		window.speechSynthesis.cancel(speech);
+		window.speechSynthesis.cancel(speech);  //on mouseout it stops speaking
 		}
 
 //Google Search
@@ -366,5 +414,5 @@ $(document).ready(function() {
       return transition(id);
     });
     return d3.csv("data/7500up.csv", display);
-
+	
 });
