@@ -48,7 +48,7 @@ function transition(name) {						// add bigdonor-type
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
-		$("#view-bigdonor-type").fadeIn(250);
+		//$("#view-bigdonor-type").fadeIn(250);
 		return total();
 		//location.reload();
 	}
@@ -57,7 +57,7 @@ function transition(name) {						// add bigdonor-type
 		$("#value-scale").fadeOut(250);
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
-		$("#view-bigdonor-type").fadeIn(250);
+		//$("#view-bigdonor-type").fadeIn(250);
 		$("#view-party-type").fadeIn(1000);
 		return partyGroup();
 	}
@@ -66,7 +66,7 @@ function transition(name) {						// add bigdonor-type
 		$("#value-scale").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
-		$("#view-bigdonor-type").fadeIn(250);
+		//$("#view-bigdonor-type").fadeIn(250);
 		$("#view-donor-type").fadeIn(1000);
 		return donorType();
 	}
@@ -75,7 +75,7 @@ function transition(name) {						// add bigdonor-type
 		$("#value-scale").fadeOut(250);
 		$("#view-donor-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
-		$("#view-bigdonor-type").fadeIn(250);
+		//$("#view-bigdonor-type").fadeIn(250);
 		$("#view-source-type").fadeIn(1000);
 		return fundsType();
 	}
