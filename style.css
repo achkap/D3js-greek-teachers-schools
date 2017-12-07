@@ -30,8 +30,8 @@ p:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover {
     position: absolute; 
 }
 
-/* Initial appearance on load */
-#view-party-type, #view-donor-type, #view-source-type {
+/* Initial appearance on load *//*Initialise big-donor split
+#view-party-type, #view-donor-type, #view-source-type, #view-bigdonor-type {
     display: none;
 }
 
@@ -44,6 +44,13 @@ p:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover {
     left: 650px;
     width: 272px;
 }
+
+/* Split by big donors*/
+#view-bigdonor-type {
+    left: 800px;
+    width: 600px;
+}
+
 
 /*  Public or private funds view */
 
@@ -64,6 +71,7 @@ p:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover {
 #public-money {
     left: 610px;
 }
+
 
 /*  Party view */
 #conservative, #labour, #libdem { padding: 10px; }
@@ -105,6 +113,23 @@ p:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover {
     top: 530px;
     text-align: right;
     right: 0
+}
+
+/*Big Donor Layout*/
+#donors {
+    top: 250px;
+    left: 500px;
+    position: absolute;
+}
+#smalldonors {
+    left: 100px;
+    top: 300px;
+    position: absolute;
+}
+#bigdonors {
+    left: 700px;
+    top: 300px;
+    position: absolute
 }
 
 /* Value scale */
